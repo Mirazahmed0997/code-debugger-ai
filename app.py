@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from api_calling import generate_solution
+from api_calling import text_generator
 
 from PIL import Image
 
@@ -14,7 +15,11 @@ st.markdown("Upload the screenshot")
 st.divider()
 
 
-
+with st.container(border=True):
+        text=st.text_input("Ask anything to Miraz")
+        if text:
+            ans=text_generator(text)
+            st.markdown(ans)
 
 
 with st.sidebar:
